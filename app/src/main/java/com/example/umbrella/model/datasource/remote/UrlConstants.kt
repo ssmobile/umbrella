@@ -6,9 +6,10 @@ class UrlConstants {
       const val BASE_URL = "https://api.openweathermap.org/"
       const val DATA = "data/"
       const val VERSION = "2.5/"
-      const val FORECAST = "forecast/hourly"
+      const val FORECAST = "forecast"
       const val CURRENT_WEATHER = "weather"
       const val ZIP_QUERY = "zip"
+      const val APPID = "appid"
       const val API_KEY = "daf537413961241f1db05049b6eabf2c"
    }
 

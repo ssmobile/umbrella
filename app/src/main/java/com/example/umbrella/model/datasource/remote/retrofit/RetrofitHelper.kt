@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitHelper {
 
-    private fun getRetrofitInstance() : Retrofit =
+    fun getRetrofitInstance() : Retrofit =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(getClient())

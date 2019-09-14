@@ -1,4 +1,4 @@
-package com.example.umbrella.model.weatherresponse
+package com.example.umbrella.model.currentweatherresponse
 
 import com.google.gson.annotations.SerializedName
 
