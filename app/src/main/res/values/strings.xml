@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Umbrella</string>
+    <string name="search">SEARCH</string>
+    <string name="zip_hint">Enter ZIP Code here...</string>
 </resources>

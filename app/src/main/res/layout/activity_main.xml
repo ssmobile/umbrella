@@ -8,19 +8,49 @@
     <data>
         <variable
             name="mainViewModel"
-            type="com.example.umbrella.viewmodel.MainViewModel"/>
+            type="com.example.umbrella.viewmodel.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-        <TextView
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:id="@+id/searchTV"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{mainViewModel.currentWeatherString}"
+            android:afterTextChanged="@{(editable) -> mainViewModel.onTextChanged(editable)}"
+            android:inputType="number"
+            android:maxLength="5"
+            android:hint="@string/zip_hint"
+            app:layout_constraintHorizontal_weight="8"
+            app:layout_constraintBottom_toTopOf="@id/fgCurrentWeather"
+            app:layout_constraintEnd_toStartOf="@id/searchBTN"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="Autofill,LabelFor" />
+
+        <Button
+            android:id="@+id/searchBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:onClick="@{() -> mainViewModel.buttonClicked()}"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@id/searchTV"
+            app:layout_constraintStart_toEndOf="@id/searchTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/searchTV" />
+
+        <fragment
+            android:id="@+id/fgCurrentWeather"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:name="com.example.umbrella.view.fragments.CurrentWeatherFragment"
+            app:layout_constraintTop_toBottomOf="@id/searchTV"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

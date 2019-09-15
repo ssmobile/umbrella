@@ -21,7 +21,7 @@ interface WeatherService {
 
     @GET("$DATA$VERSION$CURRENT_WEATHER")
     fun getCurrentWeatherResponse(
-        @Query(ZIP_QUERY) zip : Int,
+        @Query(ZIP_QUERY) zip : String,
         @Query(APPID) api_key : String) : Observable<CurrentWeatherResponse>
 
     @GET("$DATA$VERSION$FORECAST")
