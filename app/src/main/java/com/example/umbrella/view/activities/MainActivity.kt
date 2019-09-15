@@ -13,12 +13,12 @@ import com.example.umbrella.viewmodel.ViewModelController
 class MainActivity : AppCompatActivity() {
 
     private lateinit var activityMainBinding: ActivityMainBinding
-    val viewModelController = ViewModelController()
+    private val viewModelController = ViewModelController()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = setContentView(this,R.layout.activity_main)
-        activityMainBinding.mainViewModel = ViewModelController.mainActivityViewModel
+        activityMainBinding.mainViewModel = viewModelController.getMainActivityModel(this)
 
     }
 
