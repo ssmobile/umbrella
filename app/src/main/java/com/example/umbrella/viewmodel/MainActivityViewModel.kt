@@ -20,7 +20,7 @@ class MainActivityViewModel : BaseObservable() {
     fun buttonClicked() {
         Log.d("TAG_MainActivityVM", searchZip)
         ViewModelController.currentWeatherViewModel.makeRequest(searchZip)
-
+        ViewModelController.forecastWeatherViewModel.makeRequest(searchZip)
     }
 
 }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidUnknownAttribute -->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -48,6 +49,16 @@
             android:layout_height="0dp"
             android:name="com.example.umbrella.view.fragments.CurrentWeatherFragment"
             app:layout_constraintTop_toBottomOf="@id/searchTV"
+            app:layout_constraintBottom_toTopOf="@id/fgForecastWeather"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <fragment
+            android:id="@+id/fgForecastWeather"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:name="com.example.umbrella.view.fragments.ForecastWeatherFragment"
+            app:layout_constraintTop_toBottomOf="@id/fgCurrentWeather"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

@@ -8,6 +8,7 @@ import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.FOREC
 import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.VERSION
 import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.ZIP_QUERY
 import com.example.umbrella.model.datasource.remote.retrofit.RetrofitHelper
+import com.example.umbrella.model.forecastweatherresponse.ForecastWeatherResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -26,8 +27,8 @@ interface WeatherService {
 
     @GET("$DATA$VERSION$FORECAST")
     fun getForecastWeatherResponse(
-        @Query(ZIP_QUERY) zip : Int,
-        @Query(APPID) api_key : String) : Observable<CurrentWeatherResponse>
+        @Query(ZIP_QUERY) zip : String,
+        @Query(APPID) api_key : String) : Observable<ForecastWeatherResponse>
 
 
 }
