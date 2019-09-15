@@ -11,9 +11,15 @@ data class City(
 	@field:SerializedName("coord")
 	val coord: Coord? = null,
 
-	@field:SerializedName("name")
-	val name: String? = null,
+	@field:SerializedName("sunrise")
+	val sunrise: Int? = null,
 
-	@field:SerializedName("id")
-	val id: Int? = null
+	@field:SerializedName("timezone")
+	val timezone: Int? = null,
+
+	@field:SerializedName("sunset")
+	val sunset: Int? = null,
+
+	@field:SerializedName("name")
+	val name: String? = null
 )

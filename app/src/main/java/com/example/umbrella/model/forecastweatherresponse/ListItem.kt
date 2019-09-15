@@ -2,6 +2,7 @@ package com.example.umbrella.model.forecastweatherresponse
 
 import com.example.umbrella.model.currentweatherresponse.Clouds
 import com.example.umbrella.model.currentweatherresponse.WeatherItem
+import com.example.umbrella.model.currentweatherresponse.Wind
 import com.google.gson.annotations.SerializedName
 
 data class ListItem(

@@ -43,5 +43,3 @@ data class CurrentWeatherResponse(
 	@field:SerializedName("wind")
 	val wind: Wind? = null
 )
-
-

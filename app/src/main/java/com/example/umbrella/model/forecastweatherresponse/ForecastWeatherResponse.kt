@@ -2,7 +2,7 @@ package com.example.umbrella.model.forecastweatherresponse
 
 import com.google.gson.annotations.SerializedName
 
-data class ForecastResponse(
+data class ForecastWeatherResponse(
 
 	@field:SerializedName("city")
 	val city: City? = null,

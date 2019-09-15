@@ -1,8 +1,5 @@
 package com.example.umbrella.viewmodel
 
-import android.util.Log
-import com.example.umbrella.model.currentweatherresponse.Main
-
 class ViewModelController {
 
     companion object {

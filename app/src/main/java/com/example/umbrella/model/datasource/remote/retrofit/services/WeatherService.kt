@@ -1,7 +1,7 @@
 package com.example.umbrella.model.datasource.remote.retrofit.services
 
-import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.APPID
 import com.example.umbrella.model.currentweatherresponse.CurrentWeatherResponse
+import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.APPID
 import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.CURRENT_WEATHER
 import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.DATA
 import com.example.umbrella.model.datasource.remote.UrlConstants.Companion.FORECAST
