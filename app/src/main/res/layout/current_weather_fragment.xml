@@ -6,14 +6,17 @@
     tools:context=".view.fragments.CurrentWeatherFragment" >
 
     <data>
+        <import type="com.example.umbrella.R" />
         <variable
             name="currentWeatherViewModel"
             type="com.example.umbrella.viewmodel.CurrentWeatherViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/currentWeatherConstraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:backgroundResource="@{currentWeatherViewModel.background}" >
 
         <TextView
             android:id="@+id/cityTV"

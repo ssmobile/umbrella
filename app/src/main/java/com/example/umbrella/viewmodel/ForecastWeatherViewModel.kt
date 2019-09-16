@@ -2,6 +2,7 @@ package com.example.umbrella.viewmodel
 
 import android.util.Log
 import androidx.databinding.BaseObservable
+import com.example.umbrella.R
 import com.example.umbrella.model.currentweatherresponse.CurrentWeatherResponse
 import com.example.umbrella.model.datasource.remote.UrlConstants
 import com.example.umbrella.model.datasource.remote.retrofit.services.WeatherService
@@ -16,6 +17,8 @@ class ForecastWeatherViewModel : BaseObservable() {
     lateinit var forecastWeather : ForecastWeatherResponse
 
     var forecastWeatherString = ""
+
+    var background = 0
 
     fun makeRequest(zip : String) {
 
@@ -41,11 +44,15 @@ class ForecastWeatherViewModel : BaseObservable() {
 
                 override fun onComplete() {
                     Log.d("TAG_onComplete", forecastWeather.toString())
+                    bindValues()
                     forecastWeatherString = forecastWeather.toString()
                     notifyChange()
                 }
             })
     }
 
+    fun bindValues() {
 
+        forecastWeather.list
+    }
 }

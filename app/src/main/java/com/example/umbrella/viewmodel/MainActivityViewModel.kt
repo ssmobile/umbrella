@@ -10,7 +10,6 @@ class MainActivityViewModel(ctx : Context) : BaseObservable() {
     lateinit var searchZip : String
     private var pref : SharedPreferences = ctx.getSharedPreferences("MyPref",0)
 
-
     init {
         if (pref.getString("zip", null) != null) {
             searchZip = pref.getString("zip", null).toString()

@@ -2,6 +2,7 @@ package com.example.umbrella.viewmodel
 
 import android.util.Log
 import androidx.databinding.BaseObservable
+import com.example.umbrella.R
 import com.example.umbrella.model.currentweatherresponse.CurrentWeatherResponse
 import com.example.umbrella.model.datasource.remote.UrlConstants
 import com.example.umbrella.model.datasource.remote.retrofit.services.WeatherService
@@ -23,6 +24,7 @@ class CurrentWeatherViewModel: BaseObservable() {
     var cityName = ""
     var tempLow = ""
     var tempHigh = ""
+    var background = 0
 
     fun makeRequest(zip : String) {
 
@@ -58,8 +60,9 @@ class CurrentWeatherViewModel: BaseObservable() {
         tempKelvin = currentWeather.main?.temp!!
         tempLowKelvin = currentWeather.main?.tempMin!!
         tempHighKelvin = currentWeather.main?.tempMax!!
-        displayInCelsius()
         cityName = currentWeather.name.toString()
+        displayInCelsius()
+        setBackground()
     }
 
     fun displayInCelsius() {
@@ -74,5 +77,15 @@ class CurrentWeatherViewModel: BaseObservable() {
         tempLow = String.format("%.0f°F",(tempLowKelvin-270)*1.8+32)
         tempHigh = String.format("%.0f°F",(tempHighKelvin-270)*1.8+32)
         notifyChange()
+    }
+
+    fun setBackground() {
+        if (tempKelvin < 288.7) {
+            background = R.color.colorCold
+        } else {
+            background = R.color.colorWarm
+        }
+
+        ViewModelController.forecastWeatherViewModel.background = background
     }
 }

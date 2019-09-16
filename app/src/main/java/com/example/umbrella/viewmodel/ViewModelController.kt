@@ -13,8 +13,6 @@ class ViewModelController {
         fun isForecastWeatherVMInitialized() = ::forecastWeatherViewModel.isInitialized
     }
 
-
-
     init {
 
         if (!isCurrentWeatherVMInitialized()) {
