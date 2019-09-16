@@ -4,6 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.databinding.BaseObservable
+import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.example.umbrella.model.forecastweatherresponse.ListItem
+import com.example.umbrella.view.adapters.ForecastAdapter
 
 class MainActivityViewModel(ctx : Context) : BaseObservable() {
 

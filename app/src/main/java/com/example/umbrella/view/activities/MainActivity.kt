@@ -6,9 +6,12 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.core.view.get
 import androidx.databinding.DataBindingUtil.setContentView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.umbrella.R
 import com.example.umbrella.databinding.ActivityMainBinding
+import com.example.umbrella.view.adapters.ForecastAdapter
 import com.example.umbrella.viewmodel.ViewModelController
+import kotlinx.android.synthetic.main.forecast_weather_fragment.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         activityMainBinding = setContentView(this,R.layout.activity_main)
         activityMainBinding.mainViewModel = viewModelController.getMainActivityModel(this)
+
+        val adapter = ForecastAdapter()
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
