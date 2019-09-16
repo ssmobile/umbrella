@@ -2,4 +2,8 @@
     <string name="app_name">Umbrella</string>
     <string name="search">SEARCH</string>
     <string name="zip_hint">Enter ZIP Code here...</string>
+    <string name="low_label">Low:</string>
+    <string name="high_label">High:</string>
+    <string name="metric">Metric</string>
+    <string name="imperial">Imperial</string>
 </resources>

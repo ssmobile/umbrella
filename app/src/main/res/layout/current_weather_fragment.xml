@@ -16,6 +16,107 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/cityTV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@{currentWeatherViewModel.cityName}"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/temperatureTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/temperatureTV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@{currentWeatherViewModel.tempString}"
+            android:gravity="center"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/cityTV"
+            app:layout_constraintBottom_toTopOf="@id/lowTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/low_label"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:labelFor="@id/lowTV"-->
+<!--            android:text="@string/low_label"-->
+<!--            android:gravity="end"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/lowTV"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/temperatureTV"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+
+        <ImageView
+            android:id="@+id/lowIV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:labelFor="@id/lowTV"
+            android:src="@drawable/ic_arrow_drop_down_red_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/lowTV"
+            app:layout_constraintTop_toBottomOf="@id/temperatureTV"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <TextView
+            android:id="@+id/lowTV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{currentWeatherViewModel.tempLow}"
+            android:gravity="start|center"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/lowIV"
+            app:layout_constraintEnd_toStartOf="@id/highIV"
+            app:layout_constraintTop_toBottomOf="@id/temperatureTV"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/highIV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:labelFor="@id/highTV"
+            android:src="@drawable/ic_arrow_drop_up_green_24dp"
+            app:layout_constraintStart_toEndOf="@id/lowTV"
+            app:layout_constraintEnd_toStartOf="@id/highTV"
+            app:layout_constraintTop_toBottomOf="@id/temperatureTV"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/high_label"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:labelFor="@id/highTV"-->
+<!--            android:text="@string/high_label"-->
+<!--            android:gravity="end"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintStart_toEndOf="@id/lowTV"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/highTV"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/temperatureTV"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+
+        <TextView
+            android:id="@+id/highTV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{currentWeatherViewModel.tempHigh}"
+            android:gravity="start|center"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/highIV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/temperatureTV"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"

@@ -16,6 +16,13 @@ class CurrentWeatherViewModel: BaseObservable() {
     lateinit var currentWeather : CurrentWeatherResponse
 
     var currentWeatherString = ""
+    var tempKelvin = 0.0
+    var tempLowKelvin = 0.0
+    var tempHighKelvin = 0.0
+    var tempString = ""
+    var cityName = ""
+    var tempLow = ""
+    var tempHigh = ""
 
     fun makeRequest(zip : String) {
 
@@ -41,11 +48,31 @@ class CurrentWeatherViewModel: BaseObservable() {
 
                     override fun onComplete() {
                         Log.d("TAG_onComplete", currentWeather.toString())
-                        currentWeatherString = currentWeather.toString()
+                        bindData()
                         notifyChange()
                     }
                 })
     }
 
+    fun bindData() {
+        tempKelvin = currentWeather.main?.temp!!
+        tempLowKelvin = currentWeather.main?.tempMin!!
+        tempHighKelvin = currentWeather.main?.tempMax!!
+        displayInCelsius()
+        cityName = currentWeather.name.toString()
+    }
 
+    fun displayInCelsius() {
+        tempString = String.format("%.0f°C",tempKelvin-270)
+        tempLow = String.format("%.0f°C",tempLowKelvin-270)
+        tempHigh = String.format("%.0f°C",tempHighKelvin-270)
+        notifyChange()
+    }
+
+    fun displayInFahrenheit() {
+        tempString = String.format("%.0f°F",(tempKelvin-270)*1.8+32)
+        tempLow = String.format("%.0f°F",(tempLowKelvin-270)*1.8+32)
+        tempHigh = String.format("%.0f°F",(tempHighKelvin-270)*1.8+32)
+        notifyChange()
+    }
 }
