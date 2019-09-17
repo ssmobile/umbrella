@@ -6,7 +6,7 @@ import com.example.umbrella.model.forecastweatherresponse.ListItem
 import com.example.umbrella.view.adapters.ForecastAdapter
 
 @BindingAdapter("bind:data")
-fun <T> setRecyclerViewProperties(recyclerView: RecyclerView, items : List<ListItem>) {
+fun <T> setRecyclerViewProperties(recyclerView: RecyclerView, items : List<List<ListItem>>) {
     if (recyclerView.adapter is ForecastAdapter) {
         (recyclerView.adapter as ForecastAdapter).setData(items)
     }

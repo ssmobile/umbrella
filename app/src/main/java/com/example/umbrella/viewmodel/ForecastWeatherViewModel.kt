@@ -2,15 +2,10 @@ package com.example.umbrella.viewmodel
 
 import android.util.Log
 import androidx.databinding.BaseObservable
-import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.example.umbrella.R
-import com.example.umbrella.model.currentweatherresponse.CurrentWeatherResponse
 import com.example.umbrella.model.datasource.remote.UrlConstants
 import com.example.umbrella.model.datasource.remote.retrofit.services.WeatherService
 import com.example.umbrella.model.forecastweatherresponse.ForecastWeatherResponse
 import com.example.umbrella.model.forecastweatherresponse.ListItem
-import com.example.umbrella.view.adapters.ForecastAdapter
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -22,9 +17,9 @@ class ForecastWeatherViewModel : BaseObservable() {
 
     var forecastWeatherString = ""
     var forecastList = emptyList<ListItem>()
-
+    var forecastDailyList = emptyList<List<ListItem>>()
     var background = 0
-
+    var forecastDayOfWeek = ""
 
     fun makeRequest(zip : String) {
 
@@ -51,17 +46,21 @@ class ForecastWeatherViewModel : BaseObservable() {
                 override fun onComplete() {
                     Log.d("TAG_onComplete", forecastWeather.toString())
                     bindValues()
-                    forecastWeatherString = forecastWeather.toString()
-                    forecastList = forecastWeather.list as List<ListItem>
+
                     notifyChange()
                 }
             })
     }
 
     fun bindValues() {
-
-        forecastWeather.list
+        forecastWeatherString = forecastWeather.toString()
+        forecastList = forecastWeather.list as List<ListItem>
+        val forecastMap = forecastList.groupBy{ it.dtTxt?.substring(0,10) }
+        Log.d("TAG_MAP" , "$forecastMap")
+        forecastDailyList = forecastMap.values.toList()
     }
+
+
 
 
 }
